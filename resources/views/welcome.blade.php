@@ -8,10 +8,9 @@
 
     </head>
     <body>
-
         <div class="container">
             <header class="main-header">
-                <h1 class="title text-primary text-center display-4 my-5">
+                <h1 class="title text-danger text-center display-4 my-5">
                     Laravel <s>Croft</s> Crud
                 </h1>
             </header>
@@ -27,14 +26,13 @@
                 </div>
                 @endforeach
 
-                @foreach ($classrooms as $classroom)
+                
                 <div class="classroom card mx-3 w-50 text-center text-secondary">
                     <p> Id: {{ $classroom->id }}</p>
                     <p> Nome Classe: {{ $classroom->name }}</p>
                     <p> Studenti: {{ $classroom->total_students }} anni</p>
                     <p> Piano: {{ $classroom->floor }}</p>
                 </div>
-                @endforeach
             </main>
 
             

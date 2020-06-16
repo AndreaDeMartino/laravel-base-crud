@@ -11,10 +11,13 @@ class HomeController extends Controller
 {
     function index(){
         
-        $students = Student::all();
+        // Show all student of class 12
+        $students = Student::where('class', 12)->get();
 
+        // Find record with id 1 of classrooms table
         $classrooms = Classroom::all();
+        $classroom = $classrooms->find(1);
         
-        return view('welcome', compact('students','classrooms'));
+        return view('welcome', compact('students','classroom'));
     }
 }
