@@ -60,7 +60,9 @@ class TeacherController extends Controller
         // Check se i dati sono stati salvati
         if ($saved) {
             $idteacherNew = Teacher::find($teacherNew->id);
+
             //Redirect alla pagina show passando id creato
+            return redirect()->route('teachers.show', $idteacherNew);
         }
 
     }
@@ -71,9 +73,10 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    public function show(Teacher $teacher) //In questo modo il param della show effettua già un find dell'id del modello teacher
     {
-        //
+        return view('teachers.show', compact('teacher'));
     }
 
     /**

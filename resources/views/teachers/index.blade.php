@@ -10,6 +10,7 @@
         <div class="teacher card mx-3 text-center w-50">
             <p class="pt-3"> Nome: {{ $teacher->name }}</p>
             <p class="pt-3"> Età: {{ $teacher->age }} anni</p>
+            <a href="{{ route('teachers.show', $teacher->id) }}" class="btn btn-secondary btn-sm m-3">Dettagli</a>
         </div>
         @endforeach
 
