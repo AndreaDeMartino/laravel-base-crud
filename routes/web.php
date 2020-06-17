@@ -19,5 +19,8 @@ Route::get('/', 'HomeController@index')->name('home');
 // Students Page
 Route::get('/students', 'StudentController@index')->name('students');
 
+// Class Pages
+Route::get('/classrooms','ClassroomController@index')->name('classrooms');
+
 // Teachers Resources
 Route::resource('teachers', 'TeacherController');

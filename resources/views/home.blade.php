@@ -4,7 +4,7 @@
 
   <div class="home d-flex justify-content-center align-items-center">
 
-    <h1 class="text-primary">Welcome to Home</h1>
+    <h1 class="text-primary">Welcome to Class #12</h1>
       
   </div>  
         
