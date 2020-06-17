@@ -14,5 +14,6 @@
         @endforeach
 
     </div>  
-        
+
+    <a href="{{ route('teachers.create') }}" class="btn btn-danger w-100 my-5">Add a new Teacher</a>
 @endsection

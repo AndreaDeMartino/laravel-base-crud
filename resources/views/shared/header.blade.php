@@ -18,7 +18,6 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('students') }}">Students</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('classrooms') }}">Classrooms</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('teachers.index') }}">Teachers</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('teachers.create') }}">Add a Teacher</a></li>
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
