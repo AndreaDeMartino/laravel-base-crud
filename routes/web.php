@@ -24,3 +24,6 @@ Route::get('/classrooms','ClassroomController@index')->name('classrooms');
 
 // Teachers Resources
 Route::resource('teachers', 'TeacherController');
+
+// Companys Resources
+Route::resource('companies', 'CompanyController');
