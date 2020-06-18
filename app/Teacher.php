@@ -9,6 +9,6 @@ class Teacher extends Model
     // Fillable here
     protected $fillable = [
     'name',
-    'description'
+    'age'
     ];
 }

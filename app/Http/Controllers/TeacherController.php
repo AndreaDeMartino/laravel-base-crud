@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class TeacherController extends Controller
 {
@@ -42,10 +43,7 @@ class TeacherController extends Controller
         $data = $request->all();
        
         //Valida i campi arrivati dalla form
-        $request->validate([
-            'name' => 'required|max:20',
-            'age' => 'required|max:3'
-        ]);
+        $request->validate($this->validationRules());
 
         //Crea una nuova variabile con la classe del modello creato
         $teacherNew = new Teacher();
@@ -55,7 +53,7 @@ class TeacherController extends Controller
         // $teacherNew->age = $data['age'];
 
         //Oppure puoi farlo in modo massivo
-        $teachernew->fill($data);
+        $teacherNew->fill($data);
 
         //Salva i dati nel db
         $saved = $teacherNew->save();
@@ -88,9 +86,9 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Teacher $teacher)
     {
-        //
+        return view('teachers.edit', compact('teacher'));
     }
 
     /**
@@ -100,9 +98,17 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Teacher $teacher)
     {
-        //
+        $data = $request->all();
+
+        $request->validate($this->validationRules($teacher->id));
+        
+        $saved = $teacher->update($data);
+
+        if($saved){    
+            return redirect()->route('teachers.show', $teacher->id);
+        }
     }
 
     /**
@@ -111,8 +117,41 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
-        //
+        //Referenza entità da eliminare
+        $ref = $teacher->name;
+
+        $deleted = $teacher->delete();
+
+        if($deleted){
+            // Passo anche la referenza alla index con with
+            return redirect()->route('teachers.index')->with('deleted', $ref);
+        }
     }
+
+    /****************************************************
+    * Utility Methods
+    ****************************************************/
+
+    // Validation Rules
+    // Se inserisci id fa il controllo sull unique di name altrimenti no (come nella view store)
+    private function validationRules ($id = null){
+        return [
+            // 'name' => 'required|max:20',
+            // 'age' => 'required|max:3'
+
+            //Use Illuminate\Validation\Rule per utilizzare questo;
+            'name' => [
+                'required',
+                'max:20',
+                // Rendi univoco il campo name sulla tabella teachers ma ignora questo id
+                Rule::unique('teachers')->ignore($id)
+            ],
+            'age' => [
+                'required'
+            ]
+        ];
+    }
+
 }
