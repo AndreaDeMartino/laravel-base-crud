@@ -44,7 +44,7 @@ class TeacherController extends Controller
         //Valida i campi arrivati dalla form
         $request->validate([
             'name' => 'required|max:20',
-            'age' => 'max:3'
+            'age' => 'required|max:3'
         ]);
 
         //Crea una nuova variabile con la classe del modello creato

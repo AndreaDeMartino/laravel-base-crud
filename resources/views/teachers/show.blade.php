@@ -20,7 +20,7 @@
         Update: {{ $teacher->updated_at }}
     </li>
     <li class=" my-4 list-unstyled">
-      <a href="{{ route('teachers.index') }}" class="btn btn-primary">Return to Teachers List</a>
+      <a href="{{ route('teachers.index') }}" class="btn btn-danger">Teachers List</a>
   </li>
   </ul>
 
