@@ -24,11 +24,11 @@
       @method('POST')
 
       <div class="form-group">
-        <input type="text" class="form-control" name="name" placeholder="Teacher Name">
+        <input type="text" class="form-control" name="name" placeholder="Teacher Name" value="{{ old('name') }}">
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" name="age" placeholder="Teacher Age">
+        <input type="text" class="form-control" name="age" placeholder="Teacher Age" value="{{ old('age') }}">
       </div>
       
       <input type="submit" value="Add" class="btn btn-danger w-100">

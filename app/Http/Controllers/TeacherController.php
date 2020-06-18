@@ -51,8 +51,11 @@ class TeacherController extends Controller
         $teacherNew = new Teacher();
 
         //Assegna i valori ottenuti dalla form alla variabile
-        $teacherNew->name = $data['name'];
-        $teacherNew->age = $data['age'];
+        // $teacherNew->name = $data['name'];
+        // $teacherNew->age = $data['age'];
+
+        //Oppure puoi farlo in modo massivo
+        $teachernew->fill($data);
 
         //Salva i dati nel db
         $saved = $teacherNew->save();

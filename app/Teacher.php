@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
-    // Fillables here
+    // Fillable here
     protected $fillable = [
     'name',
     'description'
