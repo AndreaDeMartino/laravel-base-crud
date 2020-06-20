@@ -27,3 +27,6 @@ Route::resource('teachers', 'TeacherController');
 
 // Companys Resources
 Route::resource('companies', 'CompanyController');
+
+// Courses resources
+Route::resource('courses', 'CourseController');
