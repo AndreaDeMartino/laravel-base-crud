@@ -65,9 +65,9 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Course $course)
     {
-        //
+        return view('courses.edit', compact('course'));
     }
 
     /**
@@ -77,9 +77,14 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Course $course)
     {
-        //
+        $data = $request->all();
+    
+        $course->update($data);
+
+        return redirect()->route('courses.show', $course->id);
+
     }
 
     /**
@@ -88,8 +93,9 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect()->route('courses.index');
     }
 }

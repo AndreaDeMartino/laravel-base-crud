@@ -20,6 +20,9 @@
       <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Price:</span> <span class="text-primary">{{ $course->price }} €</span> </li>
       <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Start:</span> <span class="text-primary">{{ $course->start }}</span> </li>
       <li class="list-group-item d-flex justify-content-between"><span class="text-muted">End:</span> <span class="text-primary">{{ $course->end }}</span> </li>
+      <li class="list-group-item">
+        <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-warning btn-sm w-100">Edit</a>
+      </li>
     </ul>
 
   </div>

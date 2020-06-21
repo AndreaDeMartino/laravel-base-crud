@@ -21,7 +21,16 @@
         </li>
         <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Description:</span><span class="text-primary">{{ $course->description }}</span> </li>
         <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Price:</span> <span class="text-primary">{{ $course->price }} €</span> </li>
+        <li class="list-group-item text-center">
+          <form action="{{ route('courses.destroy', $course->id) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger btn-sm" type="submit" value="Delete"> 
+        </form>
+      </li>
       </ul>
+
+     
       @endforeach
 
     </div>
